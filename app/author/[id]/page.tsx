@@ -29,8 +29,8 @@ const getUser = (id: string) =>
           },
         },
       }),
-    [`user`],
-    { tags: ["user"] }
+    [`user-${id}`],
+    { tags: [`user-${id}`] }
   )();
 const PostPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
