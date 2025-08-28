@@ -8,6 +8,9 @@ export async function POST(req: NextRequest) {
     const posts = await prisma.post.findMany({
       where: {
         published: true,
+        Category: {
+          name: "Top-Stories",
+        },
         OR: [
           {
             title: { contains: searchQuery },

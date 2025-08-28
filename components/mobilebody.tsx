@@ -7,11 +7,11 @@ const getFeaturedPosts = () =>
     () =>
       prisma.post.findMany({
         where: {
-          // featured: true,
-          // published: true,
-          // Category: {
-          //   name: "Psychology",
-          // },
+          featured: true,
+          published: true,
+          Category: {
+            name: "Psychology",
+          },
         },
         select: {
           title: true,
