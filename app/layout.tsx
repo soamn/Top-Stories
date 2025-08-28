@@ -6,7 +6,7 @@ import Header from "@/components/header";
 import { ThemeProvider } from "next-themes";
 export const metadata: Metadata = {
   metadataBase: new URL(
-    `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.jpg`
+    `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.png`
   ),
   applicationName: "Top Stories",
   publisher: "Aman Negi",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Top Stories ",
   },
   description:
-    "Covering Top stories , Trending Stories , Latest Topics and Hot stories",
+    "Covering Top stories , Trending Stories , Hot Topics and Latest stories",
   openGraph: {
     title: "Top Stories",
     description:
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Top Stories Online",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.jpg`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: "Top Stories",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     description:
-      "Covering Top stories , Trending Stories , Latest Topics and Hot stories",
+      "Covering Top stories , Trending Stories , Hot Topics and Latest stories",
   },
   appleWebApp: {
     title: "Top Stories",

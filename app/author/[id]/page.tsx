@@ -2,7 +2,7 @@ import React from "react";
 import prisma from "@/lib/prisma";
 import { unstable_cache } from "next/cache";
 
-export const revalidate = 7200;
+export const revalidate = 500;
 export const dynamicParams = true;
 
 const getUser = (id: string) =>
@@ -16,6 +16,9 @@ const getUser = (id: string) =>
           Post: {
             where: {
               published: true,
+              Category: {
+                name: "Top-Stories",
+              },
             },
             select: {
               title: true,

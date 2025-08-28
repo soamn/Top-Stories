@@ -66,7 +66,7 @@ export async function generateMetadata({
       images: [image],
     },
     metadataBase: new URL(
-      `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.jpg`
+      `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.png`
     ),
     alternates: {
       canonical: url,
@@ -86,7 +86,7 @@ const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
     "@type": "BlogPosting",
     headline: article.title,
     description: article.description,
-    image: article.thumbnail || "opengraph-image.jpg",
+    image: article.thumbnail || "opengraph-image.png",
     author: {
       "@type": "Person",
       name: "Aman Negi",
