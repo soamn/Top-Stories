@@ -103,7 +103,7 @@ const MainBody = async () => {
 
   if (!featuredPosts || featuredPosts.length === 0 || !Toppost) {
     return (
-      <div className="flex items-center justify-center h-96 text-2xl font-bold">
+      <div className="md:flex items-center justify-center h-96 text-2xl font-bold hidden ">
         Under Maintenance
       </div>
     );

@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <header className="hidden lg:flex   py-4 px-9 items-center dark:bg-zinc-800 ">
+    <header className="hidden md:flex   py-4 px-9 items-center dark:bg-zinc-800 ">
       <div className=" flex-1">
         <a href="/" className=" flex items-center  space-x-2 w-fit ">
           <Logo />

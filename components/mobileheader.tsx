@@ -21,7 +21,7 @@ const MobileHeader = () => {
     };
   }, [isOpen]);
   return (
-    <header className="flex  py-4 px-5 h-screen items-center justify-center  lg:hidden dark:bg-zinc-800 ">
+    <header className="flex  py-4 px-5 h-screen items-center justify-center  md:hidden dark:bg-zinc-800 ">
       <div className="flex-1  w-full ">
         <a href="/" className=" flex items-center  space-x-2 w-fit ">
           <Logo />
