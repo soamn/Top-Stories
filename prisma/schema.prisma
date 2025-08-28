@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  sites       Json?
+  Post        Post[]
+  Subcategory Subcategory[]
+}
+
+model Post {
+  id            Int         @id @default(autoincrement())
+  title         String
+  description   String
+  content       String
+  slug          String      @unique
+  featured      Boolean     @default(false)
+  published     Boolean     @default(true)
+  authorId      String
+  tags          String
+  thumbnail     String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @default(now())
+  categoryId    Int
+  subcategoryId Int
+  Likes         Int?
+  user          user        @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  Category      Category    @relation(fields: [categoryId], references: [id])
+  Subcategory   Subcategory @relation(fields: [subcategoryId], references: [id])
+}
+
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String @default("User")
+  user user[]
+}
+
+model Subcategory {
+  id         Int      @id @default(autoincrement())
+  name       String
+  categoryId Int
+  Post       Post[]
+  Category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+}
+
+model account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime
+  updatedAt             DateTime
+  user                  user      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime
+  updatedAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model user {
+  id            String    @id
+  email         String    @unique
+  name          String?
+  password      String?
+  roleId        Int
+  image         String?
+  createdAt     DateTime
+  emailVerified Boolean
+  updatedAt     DateTime
+  about         String?
+  Post          Post[]
+  account       account[]
+  session       session[]
+  Role          Role      @relation(fields: [roleId], references: [id])
+}
