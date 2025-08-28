@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   publisher: "Aman Negi",
   title: {
     default: "Top Stories",
-    template: "%s | Indian Psychology",
+    template: "%s | Top Stories ",
   },
   description:
     "Covering Top stories , Trending Stories , Latest Topics and Hot stories",
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     description:
       "Covering Top stories , Trending Stories , Latest Topics and Hot stories",
     url: `${process.env.NEXT_PUBLIC_API_URL}`,
-    siteName: "Indian Psychology",
+    siteName: "Top Stories Online",
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_API_URL}/opengraph-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Indian Psychology",
+        alt: "Top Stories",
       },
     ],
     locale: "en-US",
@@ -60,12 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <body className={` antialiased h-screen flex flex-col `}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="light">
           <svg className="clippy">
             <defs>
               <clipPath id="path" clipPathUnits="objectBoundingBox">

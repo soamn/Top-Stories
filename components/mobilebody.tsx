@@ -10,7 +10,7 @@ const getFeaturedPosts = () =>
           featured: true,
           published: true,
           Category: {
-            name: "Psychology",
+            name: "Top-Stories",
           },
         },
         select: {
@@ -61,7 +61,7 @@ const MobileBody = async () => {
   const Toppost = feaaturedPosts[0];
   const posts = await getPosts();
   return (
-    <div className="py-1  px-2  flex-1 md:hidden">
+    <div className="py-1  px-2  flex-1 md:hidden mt-5">
       {/* section 1 */}
       <div className="flex flex-col space-y-4 w-full px-4 mb-10">
         <a href={Toppost.slug} className="flex space-x-5   ">
