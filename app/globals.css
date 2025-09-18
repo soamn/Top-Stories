@@ -97,7 +97,6 @@ svg.clippy {
 .article img {
   display: block;
   width: 100%;
-  max-width: 400;
   max-height: 500;
   object-fit: cover;
   margin: 0 auto;
