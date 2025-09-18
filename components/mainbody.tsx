@@ -4,6 +4,7 @@ import prisma from "@/lib/prisma";
 import ScrollingBar from "./scrollingbar";
 import { ArrowRight } from "lucide-react";
 import ShareButtons from "./Sharebutton";
+import { revalidate } from "@/app/[slug]/page";
 
 const getFeaturedPosts = () =>
   unstable_cache(
@@ -57,7 +58,7 @@ const getPosts = () =>
         orderBy: { updatedAt: "desc" },
       }),
     [],
-    { tags: ["posts"] }
+    { tags: ["posts"], revalidate: 300 }
   )();
 const getCategories = () =>
   unstable_cache(
@@ -93,7 +94,7 @@ const getCategories = () =>
         },
       }),
     [],
-    { tags: ["posts"] }
+    { tags: ["posts"], revalidate: 300 }
   )();
 const MainBody = async () => {
   const featuredPosts = await getFeaturedPosts();
